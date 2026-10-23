@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dns-trace-investigator"
+version = "1.0.0"
+description = "Offline DNS evidence triage and timed DHCP ownership correlation"
+requires-python = ">=3.11"
+dependencies = []
+license = "MIT"
+authors = [{name = "Alef Kaue Santos Nunes"}]
+
+[project.scripts]
+dns-trace = "dns_trace.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["dns_trace*"]
