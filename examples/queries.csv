@@ -1,0 +1,5 @@
+timestamp,src_ip,query
+2026-01-01T10:00:00Z,192.0.2.10,mzxw6ytboi234567abcdefghijklmno.relay.example
+2026-01-01T10:00:10Z,192.0.2.10,mzxw6ytboi234567abcdefghijklmnp.relay.example
+2026-01-01T10:00:20Z,192.0.2.10,mzxw6ytboi234567abcdefghijklmnr.relay.example
+2026-01-01T10:00:30Z,192.0.2.20,www.example.com

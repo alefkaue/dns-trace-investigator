@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>DNS triage</title><h1>DNS evidence triage</h1><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;scope&quot;: &quot;Offline DNS triage; no live traffic captured or external systems queried.&quot;,
+  &quot;rules&quot;: {
+    &quot;window_seconds&quot;: 60,
+    &quot;threshold&quot;: 3,
+    &quot;min_label&quot;: 24,
+    &quot;min_entropy&quot;: 3.2,
+    &quot;allowlist&quot;: []
+  },
+  &quot;summary&quot;: {
+    &quot;query_events&quot;: 4,
+    &quot;allowlisted_events&quot;: 0,
+    &quot;alerts&quot;: 1
+  },
+  &quot;limitations&quot;: [
+    &quot;Grouping uses the last two labels, not a public suffix list.&quot;,
+    &quot;Entropy and repetition are heuristics; legitimate software can match.&quot;,
+    &quot;DHCP attribution is interval-based evidence, not authenticated user identity.&quot;,
+    &quot;Capture coverage, NAT, retries, encrypted DNS and clock quality affect results.&quot;
+  ],
+  &quot;alerts&quot;: [
+    {
+      &quot;rule&quot;: &quot;DNS_ENCODED_LABEL_BURST&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;src_ip&quot;: &quot;192.0.2.10&quot;,
+      &quot;group_domain_hint&quot;: &quot;relay.example&quot;,
+      &quot;count_in_window&quot;: 3,
+      &quot;window_seconds&quot;: 60,
+      &quot;evidence_rows&quot;: [
+        1,
+        2,
+        3
+      ],
+      &quot;ownership&quot;: {
+        &quot;state&quot;: &quot;matched&quot;,
+        &quot;candidates&quot;: [
+          &quot;synthetic-workstation&quot;
+        ]
+      },
+      &quot;assessment&quot;: &quot;Suspicious encoded-label pattern; not proof of exfiltration or compromise.&quot;,
+      &quot;next_steps&quot;: [
+        &quot;Check endpoint process and resolver logs.&quot;,
+        &quot;Validate telemetry/CDN/AV false positives and collection gaps.&quot;,
+        &quot;Confirm lease validity; preserve original evidence before escalation.&quot;
+      ]
+    }
+  ],
+  &quot;timeline&quot;: [
+    {
+      &quot;timestamp&quot;: &quot;2026-01-01T10:00:00+00:00&quot;,
+      &quot;src_ip&quot;: &quot;192.0.2.10&quot;,
+      &quot;query&quot;: &quot;[label-redacted].relay.example&quot;,
+      &quot;evidence_row&quot;: 1,
+      &quot;group_domain_hint&quot;: &quot;relay.example&quot;,
+      &quot;ownership&quot;: {
+        &quot;state&quot;: &quot;matched&quot;,
+        &quot;candidates&quot;: [
+          &quot;synthetic-workstation&quot;
+        ]
+      },
+      &quot;candidate&quot;: true,
+      &quot;label_sha256&quot;: &quot;4cae4773b0addb54a14e3609f3ae919e3bf342086fe70e775cd32af16e963f77&quot;,
+      &quot;label_length&quot;: 31,
+      &quot;label_entropy&quot;: 4.632
+    },
+    {
+      &quot;timestamp&quot;: &quot;2026-01-01T10:00:10+00:00&quot;,
+      &quot;src_ip&quot;: &quot;192.0.2.10&quot;,
+      &quot;query&quot;: &quot;[label-redacted].relay.example&quot;,
+      &quot;evidence_row&quot;: 2,
+      &quot;group_domain_hint&quot;: &quot;relay.example&quot;,
+      &quot;ownership&quot;: {
+        &quot;state&quot;: &quot;matched&quot;,
+        &quot;candidates&quot;: [
+          &quot;synthetic-workstation&quot;
+        ]
+      },
+      &quot;candidate&quot;: true,
+      &quot;label_sha256&quot;: &quot;6fbe6aa5dab5b33eae4922c094e7a18fcf501d3aa48e821e7b176bfbe550cd85&quot;,
+      &quot;label_length&quot;: 31,
+      &quot;label_entropy&quot;: 4.696
+    },
+    {
+      &quot;timestamp&quot;: &quot;2026-01-01T10:00:20+00:00&quot;,
+      &quot;src_ip&quot;: &quot;192.0.2.10&quot;,
+      &quot;query&quot;: &quot;[label-redacted].relay.example&quot;,
+      &quot;evidence_row&quot;: 3,
+      &quot;group_domain_hint&quot;: &quot;relay.example&quot;,
+      &quot;ownership&quot;: {
+        &quot;state&quot;: &quot;matched&quot;,
+        &quot;candidates&quot;: [
+          &quot;synthetic-workstation&quot;
+        ]
+      },
+      &quot;candidate&quot;: true,
+      &quot;label_sha256&quot;: &quot;81546fcd69421d46722035da3bb934fed53ab163645ad24c02ed644a240f9d22&quot;,
+      &quot;label_length&quot;: 31,
+      &quot;label_entropy&quot;: 4.696
+    },
+    {
+      &quot;timestamp&quot;: &quot;2026-01-01T10:00:30+00:00&quot;,
+      &quot;src_ip&quot;: &quot;192.0.2.20&quot;,
+      &quot;query&quot;: &quot;[label-redacted].example.com&quot;,
+      &quot;evidence_row&quot;: 4,
+      &quot;group_domain_hint&quot;: &quot;example.com&quot;,
+      &quot;ownership&quot;: {
+        &quot;state&quot;: &quot;unattributed&quot;,
+        &quot;candidates&quot;: []
+      },
+      &quot;candidate&quot;: false
+    }
+  ],
+  &quot;provenance&quot;: {
+    &quot;queries_sha256&quot;: &quot;ff770e7ab13182b63516a046e5d4654dfc2b211592e4461cf393c9f321579a61&quot;,
+    &quot;leases_sha256&quot;: &quot;b8019eee61b3f1f559198be7aad3ad59f35b7e98aa5d630ac1fe4b090f7a7c8d&quot;,
+    &quot;row_numbering&quot;: &quot;one-based data record, excluding CSV header&quot;
+  }
+}
+</pre></html>

@@ -1,0 +1,23 @@
+Local test run; filesystem paths redacted.
+
+test_allowlist_has_label_boundaries (test_dns.DNSTests.test_allowlist_has_label_boundaries) ... ok
+test_burst_links_original_rows_without_claiming_compromise (test_dns.DNSTests.test_burst_links_original_rows_without_claiming_compromise) ... ok
+test_cli_generates_reports_with_provenance (test_dns.DNSTests.test_cli_generates_reports_with_provenance) ... ok
+test_dhcp_end_is_exclusive_and_ambiguity_is_preserved (test_dns.DNSTests.test_dhcp_end_is_exclusive_and_ambiguity_is_preserved) ... ok
+test_events_outside_window_do_not_alert (test_dns.DNSTests.test_events_outside_window_do_not_alert) ... ok
+test_invalid_threshold (test_dns.DNSTests.test_invalid_threshold) ... ok
+test_low_entropy_and_short_queries_are_not_candidates (test_dns.DNSTests.test_low_entropy_and_short_queries_are_not_candidates) ... ok
+test_reveal_is_explicit (test_dns.DNSTests.test_reveal_is_explicit) ... ok
+test_reversed_lease_rejected (test_dns.DNSTests.test_reversed_lease_rejected) ... ok
+test_timezone_invalid_ip_and_bad_name (test_dns.DNSTests.test_timezone_invalid_ip_and_bad_name) ... ok
+test_tshark_fields_and_dns_responses (test_dns.DNSTests.test_tshark_fields_and_dns_responses) ... ok
+test_tshark_ipv6_with_empty_ipv4_column (test_dns.DNSTests.test_tshark_ipv6_with_empty_ipv4_column) ... ok
+test_valid_lease_correlation (test_dns.DNSTests.test_valid_lease_correlation) ... ok
+test_window_uses_elapsed_time_not_bucket_boundaries (test_dns.DNSTests.test_window_uses_elapsed_time_not_bucket_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.019s
+
+OK
+Queries: 3 | Alerts for review: 1
+No finding is proof of compromise. Reports: $TMP\tmpf8c8g_fh\reports

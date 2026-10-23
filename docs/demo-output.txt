@@ -1,0 +1,6 @@
+SYNTHETIC LOCAL DEMO — NOT ORIGINAL / PRODUCTION EVIDENCE
+
+$ python -m dns_trace --queries examples/queries.csv --leases examples/leases.csv --out examples/output
+
+Queries: 4 | Alerts for review: 1
+No finding is proof of compromise. Reports: examples\output
