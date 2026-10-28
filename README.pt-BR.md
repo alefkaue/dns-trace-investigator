@@ -1,5 +1,7 @@
 # Investigação offline de DNS
 
+**Área do portfólio:** [Cybersecurity](https://github.com/alefkaue#cybersecurity) · **Contexto:** Projeto pessoal
+
 Ferramenta pessoal em Python para analisar exportações de consultas DNS e relacionar eventos
 a intervalos de concessão DHCP. Não captura tráfego, não consulta servidores externos e não
 classifica um padrão suspeito como invasão confirmada.

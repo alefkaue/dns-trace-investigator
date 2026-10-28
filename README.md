@@ -1,5 +1,7 @@
 # DNS Trace Investigator
 
+**Portfolio area:** [Cybersecurity](https://github.com/alefkaue#cybersecurity) · **Context:** Personal project
+
 Offline DNS evidence triage with time-aware DHCP correlation, traceable rows and conservative findings.
 Personal project by **Alef Kaue Santos Nunes**, developed with AI assistance.
 [Português](README.pt-BR.md) · [Investigation model](docs/investigation-model.md)
